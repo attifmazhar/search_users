@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android Assignment</string>
+    <string name="name">Atif Mazhar</string>
+    <string name="date"></string>
+    <string name="search_name">Search Github users</string>
+    <string name="empty_list">oops, List is empty.</string>
+    <string name="loading">please wait</string>
+</resources>
