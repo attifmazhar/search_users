@@ -15,15 +15,15 @@ object Service {
     /**
      * Connection timeout duration
      */
-    val CONNECT_TIMEOUT : Long = 10 * 1000
+    val CONNECT_TIMEOUT : Long = 60
     /**
      * Connection Read timeout duration
      */
-    val READ_TIMEOUT : Long = 10 * 1000
+    val READ_TIMEOUT : Long = 60
     /**
      * Connection write timeout duration
      */
-    val WRITE_TIMEOUT : Long = 10 * 1000
+    val WRITE_TIMEOUT : Long = 60
 
     var api: ApiService? = null
 
@@ -32,7 +32,7 @@ object Service {
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val httpClient = OkHttpClient.Builder()
 
-        val client = httpClient.connectTimeout(60, TimeUnit.SECONDS)
+        val client = httpClient.connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
                 .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
