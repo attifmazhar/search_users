@@ -1,3 +1,3 @@
-# MVVM-Simple-Sample
-Android Simple Sample MVVM Architecture App written in Kotlin. (retrofit ,ROOM,Livedata, Databinding)
-and how to handle showing toast or dialog in screen orientation change with SingleLiveEvent class.
+# Search Git User
+Android Sample App based on MVVM Architecture and App written in Kotlin.
+Max 10 API calls are hit in one minute.
