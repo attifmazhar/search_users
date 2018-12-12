@@ -1,14 +1,12 @@
 package com.assignment.data.network
 
-import com.assignment.core.App
 import com.assignment.core.Config
-import com.assignment.data.network.ApiService
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
 
 object Service {
 
@@ -25,7 +23,7 @@ object Service {
      */
     val WRITE_TIMEOUT : Long = 60
 
-    var api: ApiService? = null
+    var api: ApiService
 
     init {
         val interceptor = HttpLoggingInterceptor()
@@ -42,6 +40,8 @@ object Service {
                 .baseUrl(Config.HOST)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
+                //its required for coroutines
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build()
         api = retrofit.create(ApiService::class.java)
     }

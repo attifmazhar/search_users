@@ -1,7 +1,7 @@
 package com.assignment.ui.home
 
 import android.arch.lifecycle.MutableLiveData
-import com.assignment.data.model.UserDto
+import com.assignment.data.model.UsersDto
 import com.assignment.repository.UserRepository
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ class HomeViewModelTest {
     @Mock
     lateinit var userResponse: UserRepository
     @Mock
-    lateinit var userData: MutableLiveData<UserDto>
+    lateinit var usersData: MutableLiveData<UsersDto>
     @Mock
     lateinit var error : MutableLiveData<String>
 

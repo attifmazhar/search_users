@@ -8,7 +8,7 @@ object CustomBindingAdapter{
 
     @JvmStatic
     @BindingAdapter("bind:image_url")
-    fun loadImage(imageView: ImageView, url: String) {
+    fun loadImage(imageView: ImageView, url: String?) {
         url?.let {
             Picasso.with(imageView.context).load(it).into(imageView)
         }

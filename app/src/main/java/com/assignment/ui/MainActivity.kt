@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import com.assignment.R
-import com.assignment.data.model.UserDto
+import com.assignment.data.model.UsersDto
 import com.assignment.ui.home.HomeAdapter
 import com.assignment.ui.home.HomeViewModel
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         with(viewModel) {
-            userData.observe(this@MainActivity, Observer {
+            usersData.observe(this@MainActivity, Observer {
                 initView(it)
             })
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initView(it: UserDto?) {
+    private fun initView(it: UsersDto?) {
         rv_main_home.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
         rv_main_home.adapter = adapter
         progressBar_home.visibility = View.GONE

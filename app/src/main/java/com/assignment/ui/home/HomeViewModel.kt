@@ -2,23 +2,28 @@ package com.assignment.ui.home
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.assignment.data.model.UserDto
+import com.assignment.data.model.UsersDto
 import com.assignment.repository.UserRepository
 
-class HomeViewModel(): ViewModel(){
+class HomeViewModel: ViewModel(){
 
     private val TAG: String = HomeViewModel::class.java.simpleName
-    private var userResponse: UserRepository?= null
+    var userResponse: UserRepository
 
-    val userData: MutableLiveData<UserDto> by lazy { MutableLiveData<UserDto>() }
+    val usersData: MutableLiveData<UsersDto> by lazy { MutableLiveData<UsersDto>() }
     val error : MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
     init {
-        userResponse = UserRepository(userData, error)
+        userResponse = UserRepository(usersData, error)
     }
 
     fun fetchUsers(query: String = "") {
-        userResponse?.searchUsersService(query)
+        //old retrofit call
+//        userResponse.searchUsersService(query)
+        userResponse.searchUsersDeferredService(query)
+
     }
+
+
 
 }
